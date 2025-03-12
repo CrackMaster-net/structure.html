@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETA 4</title>
+    <script>
+        function evaluateNum() {
+    // Get the start and end values from the input fields
+    const start = parseInt(document.getElementById("start").value);
+    const end = parseInt(document.getElementById("end").value);
+    
+    // Initialize arrays to hold the results
+    let evenNumbers = [];
+    let oddNumbers = [];
+    let evenDivBy7 = [];
+    let oddNotDivBy5 = [];
+    let divBy6And8 = [];
+    let divBy6Or8 = [];
+    let notDivBy3And4 = [];
+
+    // Loop through the range from start to end
+    for (let i = start; i <= end; i++) {
+        // Check if the number is even or odd
+        if (i % 2 === 0) {
+            evenNumbers.push(i);
+            // Check if even number is divisible by 7
+            if (i % 7 === 0) {
+                evenDivBy7.push(i);
+            }
+        } else {
+            oddNumbers.push(i);
+            // Check if odd number is not divisible by 5
+            if (i % 5 !== 0) {
+                oddNotDivBy5.push(i);
+            }
+        }
+
+        // Check for divisibility by 6 and 8
+        if (i % 6 === 0 && i % 8 === 0) {
+            divBy6And8.push(i);
+        }
+        // Check for divisibility by either 6 or 8
+        if (i % 6 === 0 || i % 8 === 0) {
+            divBy6Or8.push(i);
+        }
+        // Check for not divisible by both 3 and 4
+        if (i % 3 !== 0 && i % 4 !== 0) {
+            notDivBy3And4.push(i);
+        }
+    }
+
+    // Display the results in the respective HTML elements
+    document.getElementById("evenNum").innerText = evenNumbers.join(", ");
+    document.getElementById("oddNum").innerText = oddNumbers.join(", ");
+    document.getElementById("p2").innerText = evenDivBy7.join(", ");
+    document.getElementById("p3").innerText = oddNotDivBy5.join(", ");
+    document.getElementById("p4").innerText = divBy6And8.join(", ");
+    document.getElementById("p5").innerText = divBy6Or8.join(", ");
+    document.getElementById("p6").innerText = notDivBy3And4.join(", ");
+}
+    </script>
+</head>
+<body>
+    <h2>Condition</h2>
+    <p id="for"></p>
+    <p>
+        Start: <input type="text" id="start">
+        <br>
+        End: <input type="text" id="end">
+    </p>
+    <input type="button" value="Check" onclick="evaluateNum()">
+    <p id="p1"></p>
+    <p>
+        Even Number: <b id="evenNum"></b> <br>
+        Odd Number: <b id="oddNum"></b> <br>
+        even numbers are divisible by 7: <b id="p2"></b><br>
+        odd numbers and not divisible by 5: <b id="p3"></b><br>
+        divisible by both 6 and 8: <b id="p4"></b><br>
+        divisible by either 6 or 8: <b id="p5"></b> <br>
+        not divisible by both 3 and 4: <b id="p6"></b>
+    </p>
+</body>
+</html>
