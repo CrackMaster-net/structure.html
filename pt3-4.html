@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>PETA 3</title>
+    <script>
+        function displayInput() {
+    //Getting the input value from the text field
+    var txt = document.getElementById("input").value;
+    //Initialize an empty input to store the output
+    var arry = "";
+
+    //Loop through each character in the input string
+    for (var i = 0; i < txt.length; i++) {
+      //Calculate the current position. Starting from 1 instead of 0
+      var num = i + 1;
+      var suffix;
+
+      //Determine the ordinal suffix based on the number
+      if (num % 10 === 1 && num % 100 !== 11) {
+        suffix = "st"; //1st, 21st, 31st, etc.
+      } else if (num % 10 === 2 && num % 100 !== 12) {
+        suffix = "nd"; //2nd, 22nd, 32nd, etc.
+      } else if (num % 10 === 3 && num % 100 !== 13) {
+        suffix = "rd"; //3rd, 23rd, 33rd, etc.
+      } else {
+        suffix = "th"; //4th, 11th, 12th, 13th, 24th, etc.
+      }
+
+      //Append the ordinal number, the character, and a line break to the output string
+      arry = arry + num + suffix + " = " + txt[i] + "<br>";
+    }
+
+    //Display the output string in the paragraph with id "output"
+    document.getElementById("output").innerHTML = arry;
+  }
+    </script>
+  </head>
+  <body>
+    <h1>Strings and Array</h1>
+    <p>Type a Phrase or sentence:</p>
+    <input type="text" id="input">
+    <button type="button" onclick="displayInput()">Click Me</button>
+    <p id="output"></p>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--peta4-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETA 4</title>
+    <script>
+        function evaluateNum() {
+            // Get the start and end values from the input fields
+            const startInput = document.getElementById("start").value;
+            const endInput = document.getElementById("end").value;
+
+            // Parse the input values as integers
+            const start = parseInt(startInput);
+            const end = parseInt(endInput);
+
+            // Validate that inputs are valid numbers
+            if (isNaN(start) || isNaN(end)) {
+                document.getElementById("errorMessage").innerText = "Error: Please enter valid numeric values for Start and End.";
+                return; // Stop further execution
+            }
+
+            // Initialize arrays to hold the results
+            let evenNumbers = [];
+            let oddNumbers = [];
+            let evenDivBy7 = [];
+            let oddNotDivBy5 = [];
+            let divBy6And8 = [];
+            let divBy6Or8 = [];
+            let notDivBy3And4 = [];
+
+            // Loop through the range from start to end
+            for (let i = start; i <= end; i++) {
+                // Check if the number is even or odd
+                if (i % 2 === 0) {
+                    evenNumbers.push(i);
+                    // Check if even number is divisible by 7
+                    if (i % 7 === 0) {
+                        evenDivBy7.push(i);
+                    }
+                } else {
+                    oddNumbers.push(i);
+                    // Check if odd number is not divisible by 5
+                    if (i % 5 !== 0) {
+                        oddNotDivBy5.push(i);
+                    }
+                }
+
+                // Check for divisibility by 6 and 8
+                if (i % 6 === 0 && i % 8 === 0) {
+                    divBy6And8.push(i);
+                }
+                // Check for divisibility by either 6 or 8
+                if (i % 6 === 0 || i % 8 === 0) {
+                    divBy6Or8.push(i);
+                }
+                // Check for not divisible by both 3 and 4
+                if (i % 3 !== 0 && i % 4 !== 0) {
+                    notDivBy3And4.push(i);
+                }
+            }
+
+            // Display the results in the respective HTML elements
+            document.getElementById("evenNum").innerText = evenNumbers.join(", ");
+            document.getElementById("oddNum").innerText = oddNumbers.join(", ");
+            document.getElementById("evenNumDivBy7").innerText = evenDivBy7.join(", ");
+            document.getElementById("oddNumNotDivBy5").innerText = oddNotDivBy5.join(", ");
+            document.getElementById("divByBoth6And8").innerText = divBy6And8.join(", ");
+            document.getElementById("divByEither6Or8").innerText = divBy6Or8.join(", ");
+            document.getElementById("notDivByBoth3And4").innerText = notDivBy3And4.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h2>Condition</h2>
+    <p>
+        Start: <input type="text" id="start">
+        <br>
+        End: &nbsp;<input type="text" id="end">
+    </p>
+    <input type="button" value="Check" onclick="evaluateNum()">
+    <p id="errorMessage" style="color: red;"></p>
+    <p>
+        Even Number: <b id="evenNum"></b> <br>
+        Odd Number: <b id="oddNum"></b> <br>
+        Even numbers are divisible by 7: <b id="evenNumDivBy7"></b><br>
+        Odd numbers and not divisible by 5: <b id="oddNumNotDivBy5"></b><br>
+        Divisible by both 6 and 8: <b id="divByBoth6And8"></b><br>
+        Divisible by either 6 or 8: <b id="divByEither6Or8"></b> <br>
+        Not divisible by both 3 and 4: <b id="notDivByBoth3And4"></b>
+    </p>
+</body>
+</html>
