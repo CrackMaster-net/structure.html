@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="shopsname">Malhazar's Shop</div>
+  </div>
+
+  <div class="products">
+    <div class="product-item">
+      <img src="https://eciton-store-newdemo.myshopify.com/cdn/shop/files/pro25_784c206d-4729-4d20-97ba-1f236bd3adad.jpg?v=1742270269&width=600" alt="Game Controller" />
+      <div class="product-caption">
+        <span><button type="button" onclick="addedToCart(1)">Add to Cart</button></span>
+        Game Controller
+        <span><button type="button" onclick="orderProduct(600)">₱ 600</button></span></div>
+    </div>
+    <div class="product-item">
+      <img src="https://eciton-store-newdemo.myshopify.com/cdn/shop/files/pro3_2f1bf4a7-d97f-4c55-8dcc-c96dff48f63e.jpg?v=1741334634&width=600" alt="Speaker" />
+      <div class="product-caption">
+        <span><button type="button" onclick="addedToCart(1)">Add to Cart</button></span>
+        Bluetooth Speaker
+        <span><button type="button" onclick="orderProduct(400)">₱ 400</button></span></div>
+    </div>
+    <div class="product-item">
+      <div class="product">
+        <img src="https://eciton-store-newdemo.myshopify.com/cdn/shop/files/pro22_416f0c57-fdc0-4114-8a2d-40894dae9c2c.jpg?v=1741334817&width=600" alt="Clean Bot">
+        <div class="product-caption">
+          <span><button type="button" onclick="addedToCart(1)">Add to Cart</button></span>
+          Clean Bo
+          <span><button type="button" onclick="orderProduct(300)">₱ 300</button></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sticky-forever">
+    <div class="total">Total: ₱<span id="totalProduct"></span></div>
+    <div class="cart">Cart:<span id="cart"></span></div>
+  </div>
+</body>
+</html>
