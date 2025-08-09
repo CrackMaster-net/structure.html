@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tracker Tool</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.outline {
+  /*background-color: aqua;*/
+  padding: 25px 25px 80px;
+  width: 40%;
+  height: auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  outline: none;
+  border: none;
+  background-color: #f0f0f0;
+  width: 40%;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: #333;
+  opacity: 1;
+  font-size: 16px;
+  padding: 1px 0;
+}
+
+.clickable {
+  margin: 0 20px;
+}
+
+.button {
+  border: none;
+  background-color: rgb(118, 208, 118);
+  color: white;
+  font-size: 16px;
+}
+
+.breakLine {
+  border: solid black 1px;
+  margin: 20px 0;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="outline">
+      <input type="text" placeholder="Type Your Task Here" class="input" id="taskInput"> <span class="clickable"><button type="button" onclick="addTask()" class="button">Add Task</button></span>
+      <div class="breakLine"></div>
+      <div class="output" id="taskOutput"></div>
+    </div>
+  </div>
+</body>
+
+</html>
